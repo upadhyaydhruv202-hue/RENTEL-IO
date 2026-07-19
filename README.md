@@ -54,3 +54,27 @@ npm run dev
 ```
 
 App: `http://localhost:5173`
+
+## Demo accounts
+
+| Role | Email | Password |
+|------|-------|----------|
+| Super Admin | admin@rentelio.com | admin123 |
+| Vendor | vendor@rentelio.com | vendor123 |
+| User | customer@rentelio.com | customer123 |
+
+## Role isolation
+
+* **User** — own rentals, wallet, cart, wishlist, profile only  
+* **Vendor** — own products, rentals, deposits, customers, reports only (`vendorId` scope)  
+* **Super Admin** — entire platform (users, vendors, ads, fraud, backups, settings)
+
+Logging into one portal clears other portal sessions.
+
+## Route map
+
+* User: `/user/dashboard`, `/user/browse`, `/user/rentals`, …  
+* Vendor: `/vendor/dashboard`, `/vendor/inventory`, …  
+* Super Admin: `/admin/dashboard`, `/admin/users`, `/admin/vendors`, `/admin/platform`, …
+
+Legacy `/shop/*` and `/login` redirect to the new portals.
